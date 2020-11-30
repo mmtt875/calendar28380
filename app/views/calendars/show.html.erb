@@ -1,2 +1,37 @@
-<h1>Calendars#show</h1>
-<p>Find me in app/views/calendars/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Meetings</h1>
+
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Start time</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @calendars.each do |calendar| %>
+      <tr>
+        <td><%= calendar.name %></td>
+        <td><%= calendar.start_time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= month_calendar events: @calendars do |date, calendars| %>
+  <%= date %>
+
+  <% calendars.each do |calendar| %>
+    <div>
+      <%= calendar.name %>
+    </div>
+  <% end %>
+<% end %>
+
+
+<%= link_to 'New Calendar', new_calendar_path, class: "btn btn-sm btn-outline-secondary" %>
+
+
+

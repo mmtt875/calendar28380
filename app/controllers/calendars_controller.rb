@@ -5,5 +5,6 @@ class CalendarsController < ApplicationController
   end
 
   def show
+    @calendars = Calendar.all
   end
 end
