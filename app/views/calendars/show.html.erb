@@ -1,18 +1,23 @@
 <p id="notice"><%= notice %></p>
-<%# <script type= "text/javascript" src="https://code.jquery.com/jquery-3.4.1min.js"></script> %>
-<script type="text/javascript">
-let samp = document.getElementsByClassName("current-month");
- samp.forEach( function( value ) {
-
-    console.log( value );
-});
-</script>
 <h1>Meetings</h1>
 
 <%= month_calendar do |date| %>
   <%= date.day %>
 <% end %>
 
-
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+$('.current-month').each(function(index, value) {
+  if (index % 2 === 0) {
+    $(this).click(function() {
+      $(this).css('background-color', 'red');
+    })
+  }
+  else
+  {
+    $(this).css('background-color', 'blue');
+  }
+});
+</script>
 
 
