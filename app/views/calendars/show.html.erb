@@ -1,2 +1,19 @@
-<h1>Calendars#show</h1>
-<p>Find me in app/views/calendars/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+<h1>Meetings</h1>
+
+<%= month_calendar do |date| %>
+  <%= date.day %>
+<% end %>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+$('.current-month').each(function(index, value) {
+    $(this).click(function() {
+      $(this).each(function(){
+        $(this).toggleClass('stamp');
+      });
+    });
+});
+</script>
+
+

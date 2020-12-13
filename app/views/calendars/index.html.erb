@@ -1,6 +1,6 @@
 <h1>トップページ（仮）</h1>
 <% if user_signed_in?%>
-      <%= link_to current_user.nickname, "#", class: "user-nickname" %>
+      <%= link_to current_user.nickname, calendars_show_path, class: "user-nickname" %>
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
       <% else %>
       <%= link_to 'ログイン', user_session_path, class: "login" %>
