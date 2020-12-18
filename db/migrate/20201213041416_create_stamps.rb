@@ -4,7 +4,7 @@ class CreateStamps < ActiveRecord::Migration[6.0]
       t.datetime :date
       t.boolean :stamp_checked
       t.references :user, foreign_key: true
-      t.references :calender, foreign_key: true
+      t.references :calendar, foreign_key: true
 
       t.timestamps
     end

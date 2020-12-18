@@ -1,0 +1,27 @@
+<%= form_with(model: @stamp, local: true) do |f| %>
+  <% if @stamp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stamp.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+        <% @stamp.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "開始日" %>
+    <%= f.datetime_select :start_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label "真偽" %>
+    <%= f.select :is_released, [['偽',0],['真',1]], { include_blank: true, selected: 0 } %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

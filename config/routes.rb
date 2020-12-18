@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :calendars
+  resources :calendars do
+    resources :stamps
+  end
   root 'calendars#index'
   get 'calendars/show'
   devise_for :users
