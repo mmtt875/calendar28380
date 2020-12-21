@@ -7,4 +7,7 @@ class CalendarsController < ApplicationController
   def show
     @calendars = Calendar.all
   end
+
+  def create
+  end
 end

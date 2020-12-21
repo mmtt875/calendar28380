@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :calendars do
+  resource :calendar do
     resources :stamps
   end
   root 'calendars#index'
