@@ -1,0 +1,32 @@
+<%= form_with(model: @calendar, local: true) do |f| %>
+  <% if @calendar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@calendar.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+        <% @calendar.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :user_id %>
+
+  <%= f.label 'タイトル' %>
+  <%= f.text_field :title %>
+
+  <!-- <div class="field"> -->
+    <%#= f.label "開始日" %>
+    <%#= f.datetime_select :start_time %>
+  <!-- </div> -->
+
+  <!-- <div class="field"> -->
+    <%#= f.label "真偽" %>
+    <%#= f.select :is_released, [['偽',0],['真',1]], { include_blank: true, selected: 0 } %>
+  <!-- </div> -->
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

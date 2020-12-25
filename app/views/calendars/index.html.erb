@@ -1,9 +1,20 @@
 <h1>トップページ（仮）</h1>
-<% if user_signed_in?%>
-      <%= link_to current_user.nickname, calendars_show_path, class: "user-nickname" %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
-      <% else %>
-      <%= link_to 'ログイン', user_session_path, class: "login" %>
-      <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
+<% if user_signed_in? %>
+  <%#= link_to current_user.nickname, calendar_path, class: "user-nickname" %>
+  <%= link_to 'カレンダー新規作成', new_calendar_path, class: '' %>
+  <table>
+    <thead>
+      <th>カレンダー名</th>
+    </thead>
+    <tbody>
+      <% @calendars.each do |calendar| %>
+        <td><%= link_to calendar.title, calendar_path(calendar), class: '' %></td>
       <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+<% else %>
+  <%= link_to 'ログイン', user_session_path, class: "login" %>
+  <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
+<% end %>
 <p></p>
