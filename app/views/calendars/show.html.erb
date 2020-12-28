@@ -3,9 +3,14 @@
 
 <%= month_calendar do |date| %>
   <%= date.day %>
+
+  <% stamp = @calendar.stamps.find_by(date: date.to_datetime) %>
+  <% if stamp.present? && stamp.stamp_checked == true %>
+    checked!
+  <% end %>
 <% end %>
 
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 $('.current-month').each(function(index, value) {
     $(this).click(function() {
@@ -14,8 +19,6 @@ $('.current-month').each(function(index, value) {
       });
     });
 });
-</script>
+</script> -->
 
-<%= link_to '新規作成',new_calendar_stamp_path %>
-
-
+<%#= link_to '新規作成', new_calendar_stamp_path %>

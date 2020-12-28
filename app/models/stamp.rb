@@ -1,4 +1,3 @@
 class Stamp < ApplicationRecord
-  belongs_to :calendars
-  belongs_to :users
+  belongs_to :calendar
 end
