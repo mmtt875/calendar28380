@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_041416) do
+ActiveRecord::Schema.define(version: 2020_12_30_130822) do
 
   create_table "calendars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_041416) do
   end
 
   create_table "stamps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "date"
+    t.date "date"
     t.boolean "stamp_checked"
     t.bigint "user_id"
     t.bigint "calendar_id"
