@@ -2,23 +2,12 @@
 <h1>Meetings</h1>
 
 <%= month_calendar do |date| %>
-  <%= date.day %>
-
   <% stamp = @calendar.stamps.find_by(date: date.to_datetime) %>
-  <% if stamp.present? && stamp.stamp_checked == true %>
+
+  <% if stamp.present? %>
+    <%= link_to date.day, stamp_path(calendar_id: @calendar.id, date: date), method: :delete, class: '' %>
     checked!
+  <% else %>
+    <%= link_to date.day, stamps_path(calendar_id: @calendar.id, date: date), method: :post, class: '' %>
   <% end %>
 <% end %>
-
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script type="text/javascript">
-$('.current-month').each(function(index, value) {
-    $(this).click(function() {
-      $(this).each(function(){
-        $(this).toggleClass('stamp');
-      });
-    });
-});
-</script> -->
-
-<%#= link_to '新規作成', new_calendar_stamp_path %>
