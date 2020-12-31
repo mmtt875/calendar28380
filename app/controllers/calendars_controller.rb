@@ -18,11 +18,10 @@ class CalendarsController < ApplicationController
   end
 
   def create
-    # params.user_id = current_user.id
     calendar = Calendar.new(calendar_params)
 
     if calendar.invalid?
-      byebug
+      # TODO: バリデーションエラーの時の処理を書く
       # return redirect_to
     end
 

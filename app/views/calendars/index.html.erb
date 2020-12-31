@@ -1,6 +1,5 @@
 <h1>トップページ（仮）</h1>
 <% if user_signed_in? %>
-  <%#= link_to current_user.nickname, calendar_path, class: "user-nickname" %>
   <%= link_to 'カレンダー新規作成', new_calendar_path, class: '' %>
   <table>
     <thead>
