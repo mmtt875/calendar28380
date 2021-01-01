@@ -3,7 +3,6 @@ class CreateStamps < ActiveRecord::Migration[6.0]
     create_table :stamps do |t|
       t.datetime :date
       t.boolean :stamp_checked
-      t.references :user, foreign_key: true
       t.references :calendar, foreign_key: true
 
       t.timestamps
