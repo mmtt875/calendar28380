@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_30_130822) do
+ActiveRecord::Schema.define(version: 2021_01_01_091355) do
 
   create_table "calendars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -23,12 +23,10 @@ ActiveRecord::Schema.define(version: 2020_12_30_130822) do
   create_table "stamps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date"
     t.boolean "stamp_checked"
-    t.bigint "user_id"
     t.bigint "calendar_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["calendar_id"], name: "index_stamps_on_calendar_id"
-    t.index ["user_id"], name: "index_stamps_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,5 +44,4 @@ ActiveRecord::Schema.define(version: 2020_12_30_130822) do
 
   add_foreign_key "calendars", "users"
   add_foreign_key "stamps", "calendars"
-  add_foreign_key "stamps", "users"
 end
