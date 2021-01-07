@@ -2,31 +2,31 @@ version: "3"
 
 services:
   web:
-    container_name: calender
+    container_name: calendar
     build: .
     ports:
       - "3000:3000"
     environment:
-      MYSQL_HOST: calender-mysql
+      MYSQL_HOST: calendar-mysql
       MYSQL_PASSWORD: insecurepassword
     networks:
-      - calender_network
+      - calendar_network
     volumes:
-      - .:/calender
+      - .:/calendar
     tty: true
     stdin_open: true
     command: sh -c 'rm -f tmp/pids/server.pid && bundle install -j4 && bundle exec rails server -b 0.0.0.0 -p 3000'
   db:
     image: mysql:5.7
-    container_name: calender-mysql
+    container_name: calendar-mysql
     environment:
       MYSQL_ROOT_PASSWORD: insecurepassword
     networks:
-      - calender_network
+      - calendar_network
     volumes:
       - ./mysql:/var/lib/mysql
     ports:
       - "3306:3306"
 networks:
-  calender_network:
+  calendar_network:
     external: true

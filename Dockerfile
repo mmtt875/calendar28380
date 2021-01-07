@@ -1,8 +1,8 @@
 FROM ruby:2.6.5
 
-# WORKDIR /calender
-# COPY Gemfile /calender/Gemfile
-# COPY Gemfile.lock /calender/Gemfile.lock
+# WORKDIR /calendar
+# COPY Gemfile /calendar/Gemfile
+# COPY Gemfile.lock /calendar/Gemfile.lock
 #
 # RUN set -x && \
 #     apt-get -qq update && \
@@ -14,11 +14,11 @@ FROM ruby:2.6.5
 #     echo 'gem: --no-rdoc --no-ri' > ~/.gemrc && \
 #     echo bundle install -j4
 #
-# COPY . /calender
+# COPY . /calendar
 
-WORKDIR /calender
-COPY Gemfile /calender/Gemfile
-COPY Gemfile.lock /calender/Gemfile.lock
+WORKDIR /calendar
+COPY Gemfile /calendar/Gemfile
+COPY Gemfile.lock /calendar/Gemfile.lock
 
 RUN set -x && \
     apt-get -qq update && \
@@ -32,7 +32,7 @@ RUN set -x && \
     bundle config set path 'vendor/bundle' && \
     bundle install -j4
 
-COPY . /calender
+COPY . /calendar
 
 # RUN rails webpacker:install
 # rails webpacker:install:vue
