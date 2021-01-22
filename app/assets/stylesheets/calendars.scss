@@ -2,10 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.stamp{
-  background-color: aqua;
+body{
+  background-color: #1E656D;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color: #F1F3CE;
+}
+
+a{
+  text-decoration: none;
 }
 
 h1{
-  color: red;
+  color: #F1F3CE;
+}
+
+th {
+  background-color: #00293C;
+}
+
+.simple-calendar {
+  .day {
+  background-color: #F1F3CE; 
+  }
+  .th {
+    background-color: #00293C;
+  }
 }

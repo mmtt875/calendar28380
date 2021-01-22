@@ -1,4 +1,8 @@
-<h1>トップページ（仮）</h1>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&display=swap');
+</style>
+
+<h1>がんばる応援カレンダー</h1>
 <% if user_signed_in? %>
   <%= link_to 'カレンダー新規作成', new_calendar_path, class: '' %>
   <table>

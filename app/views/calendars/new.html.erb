@@ -1,3 +1,6 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&display=swap');
+</style>
 <%= form_with(model: @calendar, local: true) do |f| %>
   <% if @calendar.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +16,7 @@
 
   <%= f.hidden_field :user_id %>
 
-  <%= f.label 'タイトル' %>
+  <%= f.label 'カレンダー名' %>
   <%= f.text_field :title %>
 
   <!-- <div class="field"> -->
@@ -27,6 +30,6 @@
   <!-- </div> -->
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'カレンダー作成'%>
   </div>
 <% end %>

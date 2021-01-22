@@ -1,14 +1,17 @@
 <p id="notice"><%= notice %></p>
-<h1>Meetings</h1>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&display=swap');
+</style>
+<h1><%= @calendar.title %></h1>
 
 <%= month_calendar do |date| %>
   <% stamp = @calendar.stamps.find_by(date: date.to_datetime) %>
 
   <% if stamp.present? %>
     <%= link_to date.day, stamp_path(calendar_id: @calendar.id, date: date), method: :delete, class: '' %>
-    checked!
+    天才!!
   <% else %>
     <%= link_to date.day, stamps_path(calendar_id: @calendar.id, date: date), method: :post, class: '' %>
   <% end %>
 <% end %>
-<%= link_to "TOP", root_path %>
+<h2><%= link_to "トップページに戻る", root_path %></h2>
