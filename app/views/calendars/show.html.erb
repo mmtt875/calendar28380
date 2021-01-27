@@ -4,12 +4,12 @@
 </style>
 <h1><%= @calendar.title %></h1>
 
-<%= month_calendar do |date| %>
-  <% stamp = @calendar.stamps.find_by(date: date.to_datetime) %>
+<%= month_calendar(events: @stamps) do |date,stamp| %>
+
 
   <% if stamp.present? %>
     <%= link_to date.day, stamp_path(calendar_id: @calendar.id, date: date), method: :delete, class: '' %>
-    天才!!
+    <h2 style="color:#F62A00">天才!!</h2>
   <% else %>
     <%= link_to date.day, stamps_path(calendar_id: @calendar.id, date: date), method: :post, class: '' %>
   <% end %>

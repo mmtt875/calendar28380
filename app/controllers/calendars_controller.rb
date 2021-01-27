@@ -2,13 +2,15 @@ class CalendarsController < ApplicationController
   before_action :sign_in_required, only: [:show]
 
   def index
-    return redirect_to new_user_session_path unless current_user.present?
-
-    @calendars = Calendar.where(user_id: current_user.id)
+    @calendars = Calendar.where(user_id: current_user.id) if current_user.present?
   end
 
   def show
     @calendar = Calendar.find_by(id: params[:id])
+    day = params[:start_date].nil? ? Time.zone.today : Date.parse(rapams[:start_date])
+    beginning_date = day.beginning_of_month.beginning_of_week
+    end_date = day.end_of_month.end_of_week
+    @stamps = @calendar.stamps.where(date:beginning_date..end_date)
   end
 
   def new
