@@ -3,8 +3,14 @@
 </style>
 
 <h1>がんばる応援カレンダー</h1>
+<div class = "text">
+目標を決めて、カレンダーを作成しましょう。<br>
+達成できた日付をクリックすると背景色が変わります。<br>
+毎日継続できるようにがんばりましょう！
+</div>
+
 <% if user_signed_in? %>
-  <%= link_to 'カレンダー新規作成', new_calendar_path, class: '' %>
+  <h3><%= link_to 'カレンダー新規作成', new_calendar_path, class: '' %></h3>
   <table>
     <thead>
       <th>カレンダー名</th>
